@@ -7,8 +7,8 @@ Magíster en Ciencia de Datos e Inteligencia Artificial, Universidad Andrés Bel
 
 | Integrante | Usuario GitHub |
 | --- | --- |
-| Abigail Roblez Chavez | @AbigailRoblesC-github |
-| Daniel Pérez Ramirez | @DanielRamirezPerez-github |
+| Abigaíl Robles Chávez | @AbigailRoblesC-github |
+| Daniel Pérez Ramírez | @DanielRamirezPerez-github |
 | Matias Manriquez Ortiz | @MatiasManriquezO-github |
 | Roberto Sánchez Saldivia | @RobertSanchezS-github |
 
@@ -27,36 +27,37 @@ El detalle de los datos y las decisiones está en [`data/README.md`](data/README
 ## Estructura del repositorio
 
 ```
-proyecto-grupo8-mcdi501/
+MCDI501-grupo8/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
 ├── data/
 │   ├── README.md                       # fuente, decisiones y diccionario de variables
-│   ├── raw/data.csv                    # datos originales
+│   ├── raw/data.csv                    # datos originales (UCI)
 │   └── processed/
 │       ├── data_con_faltantes.csv      # versión usada en todo el proyecto
 │       └── valores_originales.csv      # valores eliminados, para medir la imputación
 ├── notebooks/
-│   ├── 00_generacion_faltantes.ipynb                 # se ejecuta una sola vez
-│   ├── 01_formativa1_eda_inferencia.ipynb            # Fase 1 · Formativa 1
+│   ├── 00_generacion_faltantes.ipynb                          # se ejecuta una sola vez
+│   ├── 01_formativa1_eda_inferencia.ipynb                     # Fase 1 · Formativa 1
 │   └── 02_sumativa1_analisis_exploratorio_inferencial.ipynb   # Fase 2 · Sumativa 1
-├── figuras/
-│   ├── formativa1/                     # figuras del informe de la Formativa 1
-│   └── sumativa1/                      # figuras del informe de la Sumativa 1
 └── docs/
-    ├── checklist_rubricas.md           # dónde se cumple cada criterio de las rúbricas
-    └── informe/                        # informes (Word; se exportan a PDF para Canvas)
+    ├── figuras/
+    │   ├── formativa1/                 # 5 figuras del informe de la Formativa 1
+    │   └── sumativa1/                  # 5 figuras del informe de la Sumativa 1
+    └── informe/
+        ├── F1/                         # informe entregado de la Formativa 1 (PDF)
+        └── S1/                         # informe de la Sumativa 1 (PDF)
 ```
 
 ## Avance por evaluación
 
 | Evaluación | Fase | Contenido | Estado |
 | --- | --- | --- | --- |
-| Formativa 1 | 1 | Definición del problema, descriptiva, intervalos de confianza y pruebas de hipótesis | Informe y notebook listos |
-| Sumativa 1 | 2 | Análisis exploratorio e inferencial | Informe y notebook listos |
+| Formativa 1 | 1 | Definición del problema, descriptiva, intervalos de confianza y pruebas de hipótesis | Entregada (89/99) |
+| Sumativa 1 | 2 | Análisis exploratorio e inferencial | Notebook e informe en el repositorio |
 | Formativa 2 | 3 | Modelamiento predictivo | Pendiente |
-| Sumativa 2 | 3 | Validación, simulación y remuestreo | Pendiente |
+| Sumativa 2 | 3 | Validación, simulación y remuestreo | En desarrollo |
 | Sumativa 3 | 4 | Modelamiento predictivo integrado | Pendiente |
 
 ## Cómo reproducir
@@ -70,9 +71,10 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-Ejecutar los cuadernos de `notebooks/` en orden. `00_generacion_faltantes.ipynb` solo genera los archivos de
-`data/processed/` si todavía no existen, para que los faltantes sean siempre los mismos. Todos los cálculos
-aleatorios usan la semilla 42.
+Ejecutar los cuadernos de `notebooks/` en orden (00, 01 y 02), desde esa misma carpeta. `00_generacion_faltantes.ipynb`
+solo genera los archivos de `data/processed/` si todavía no existen, para que los faltantes sean siempre los mismos.
+Los cuadernos 01 y 02 guardan sus figuras en `docs/figuras/formativa1/` y `docs/figuras/sumativa1/`. Todos los
+cálculos aleatorios usan la semilla 42.
 
 ## Convención de commits
 
@@ -87,7 +89,7 @@ Formato: `prefijo: verbo en presente + qué cambia`, todo en minúsculas y sin t
 
 | Prefijo | Úsalo cuando... | No lo uses para... |
 |---|---|---|
-| `docs` | subes o editas documentación: README, `data/README.md`, informes en `docs/informe/`, checklist de rúbricas, comentarios explicativos en los cuadernos | cambios en los datos o en celdas de código que se ejecutan (aunque el archivo sea texto) |
+| `docs` | subes o editas documentación: README, `data/README.md`, informes en `docs/informe/`, comentarios explicativos en los cuadernos | cambios en los datos o en celdas de código que se ejecutan (aunque el archivo sea texto) |
 | `data` | agregas, actualizas o reemplazas archivos de datos en `data/raw/` o `data/processed/` | cambiar cómo se limpian o filtran los datos dentro del cuaderno (eso es `feat` o `fix`) |
 | `feat` | implementas algo nuevo: un cuaderno, un análisis, una prueba de hipótesis, un intervalo de confianza, una figura, una carpeta de fase | corregir algo que ya existía y estaba mal (eso es `fix`) |
 | `fix` | corriges un error real en el código, en los resultados o en la estructura de archivos (rutas rotas, archivos que no debían subirse, un filtro mal aplicado) | mejorar la redacción o completar información en un informe o README (eso es `docs`) |
@@ -97,7 +99,7 @@ Formato: `prefijo: verbo en presente + qué cambia`, todo en minúsculas y sin t
 
 | Prefijo | Mensaje de commit | Qué cambia realmente |
 |---|---|---|
-| `docs` | `docs: agrega informe de la formativa 1` | se sube el Word del informe a `docs/informe/` |
+| `docs` | `docs: agrega informe de la formativa 1` | se sube el PDF del informe a `docs/informe/F1/` |
 | `docs` | `docs: actualiza README con la muestra de analisis` | se edita texto explicativo, no código ni datos |
 | `docs` | `docs: corrige rango de la tabla 1 en el informe` | aunque "corrige", solo cambia texto del informe |
 | `data` | `data: incorpora dataset predict students dropout de UCI` | se agrega `data/raw/data.csv` |
