@@ -1,0 +1,15 @@
+﻿Tipo,Resultado de S1,Valor S1,Validación en S2,Estado
+Parámetro,Proporción que deserta,"38,64 %","Clásico, percentil y BCa coinciden; Monte Carlo la reproduce (38,67 %)",Robusto
+Parámetro,Nota de admisión media,"126,91","Clásico, percentil y BCa coinciden; faltantes MCAR no la sesgan",Robusto
+Parámetro,"Unidades aprobadas medias, 2.º sem.","4,72","Clásico, percentil y BCa coinciden",Robusto
+Parámetro,Edad media al ingresar,"23,61","IC estable (BCa se corre 0,009 años), pero la media baja a 22,57 al recortar 5 %; mediana 20",Cautela: usar mediana
+Prueba,"Prueba 1: aprobadas 2.º sem. (Welch, d = −1,94)","p < 0,0001","Permutación p = 0,0001; ninguna réplica tan extrema",Robusto
+Prueba,"Prueba 3: beca y deserción (χ², V = 0,32)","p < 0,0001","Permutación p = 0,0001",Robusto
+Prueba,"Comprobación MCAR (χ², p = 0,041)","p = 0,041","Permutación p = 0,040: confirma un falso positivo límite",Cautela: error tipo I
+Correlación,Aprobadas 2.º sem. – deserción,"-0,69","IC bootstrap [-0,71; -0,66]",Robusta
+Correlación,Aprobadas 1.er – 2.º sem.,"0,91","IC bootstrap [0,90; 0,92]",Robusta
+Correlación,Nota 2.º sem. (sin ceros) – deserción,"-0,33","IC bootstrap [-0,37; -0,30]",Robusta
+Correlación,Edad – deserción,"0,29","IC bootstrap [0,25; 0,32]",Robusta
+Correlación,Tasa de desempleo – deserción,"-0,01","IC bootstrap [-0,04; 0,03]",Inestable (incluye 0)
+Observaciones influyentes,Edades extremas (40 años o más),186,Observación más influyente: 70 años,Documentado
+Observaciones influyentes,152 registros sin actividad académica,152 excluidos,"Con ellos d = -1,77; sin ellos -1,94",Mantener exclusión
