@@ -36,18 +36,28 @@ MCDI501-grupo8/
 │   ├── raw/data.csv                    # datos originales (UCI)
 │   └── processed/
 │       ├── data_con_faltantes.csv      # versión usada en todo el proyecto
-│       └── valores_originales.csv      # valores eliminados, para medir la imputación
+│       ├── valores_originales.csv      # valores eliminados, para medir la imputación
+│       └── resultados_validados.csv    # parámetros validados en S2 que usa S3
 ├── notebooks/
 │   ├── 00_generacion_faltantes.ipynb                          # se ejecuta una sola vez
 │   ├── 01_formativa1_eda_inferencia.ipynb                     # Fase 1 · Formativa 1
-│   └── 02_sumativa1_analisis_exploratorio_inferencial.ipynb   # Fase 2 · Sumativa 1
+│   ├── 02_sumativa1_analisis_exploratorio_inferencial.ipynb   # Fase 2 · Sumativa 1
+│   ├── 03_sumativa2_validacion_simulacion_remuestreo.ipynb    # Fase 3 · Sumativa 2
+│   ├── 04_formativa2_modelamiento_predictivo.ipynb            # Fase 3 · Formativa 2
+│   └── 05_sumativa3_modelamiento_integrado.ipynb              # Fase 4 · Sumativa 3
 └── docs/
     ├── figuras/
-    │   ├── formativa1/                 # 5 figuras del informe de la Formativa 1
-    │   └── sumativa1/                  # 5 figuras del informe de la Sumativa 1
+    │   ├── F1/                         # 5 figuras de la Formativa 1
+    │   ├── S1/                         # 5 figuras de la Sumativa 1
+    │   ├── S2/                         # 5 figuras de la Sumativa 2
+    │   ├── F2/                         # 2 figuras de la Formativa 2
+    │   └── S3/                         # 6 figuras de la Sumativa 3
     └── informe/
-        ├── F1/                         # informe entregado de la Formativa 1 (PDF)
-        └── S1/                         # informe de la Sumativa 1 (PDF)
+        ├── F1/                         # informe de la Formativa 1 (PDF)
+        ├── S1/                         # informe de la Sumativa 1 (PDF)
+        ├── S2/                         # informe de la Sumativa 2 (PDF)
+        ├── F2/                         # informe de la Formativa 2 (PDF)
+        └── S3/                         # informe final de la Sumativa 3 (PDF)
 ```
 
 ## Avance por evaluación
@@ -55,10 +65,10 @@ MCDI501-grupo8/
 | Evaluación | Fase | Contenido | Estado |
 | --- | --- | --- | --- |
 | Formativa 1 | 1 | Definición del problema, descriptiva, intervalos de confianza y pruebas de hipótesis | Entregada (89/99) |
-| Sumativa 1 | 2 | Análisis exploratorio e inferencial | Notebook e informe en el repositorio |
-| Formativa 2 | 3 | Modelamiento predictivo | Pendiente |
-| Sumativa 2 | 3 | Validación, simulación y remuestreo | En desarrollo |
-| Sumativa 3 | 4 | Modelamiento predictivo integrado | Pendiente |
+| Sumativa 1 | 2 | Análisis exploratorio e inferencial | Entregada |
+| Sumativa 2 | 3 | Validación, simulación y remuestreo | Entregada |
+| Formativa 2 | 3 | Modelamiento predictivo: regresión logística base (AUC 0,925) | Entregada (96/96) |
+| Sumativa 3 | 4 | Imputación por regresión, tres modelos logísticos, bootstrap e informe final (AUC 0,947) | Entrega final |
 
 ## Cómo reproducir
 
@@ -71,10 +81,10 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-Ejecutar los cuadernos de `notebooks/` en orden (00, 01 y 02), desde esa misma carpeta. `00_generacion_faltantes.ipynb`
+Ejecutar los cuadernos de `notebooks/` en orden (00 a 05), desde esa misma carpeta. `00_generacion_faltantes.ipynb`
 solo genera los archivos de `data/processed/` si todavía no existen, para que los faltantes sean siempre los mismos.
-Los cuadernos 01 y 02 guardan sus figuras en `docs/figuras/formativa1/` y `docs/figuras/sumativa1/`. Todos los
-cálculos aleatorios usan la semilla 42.
+Cada cuaderno guarda sus figuras en la carpeta de su evaluación dentro de `docs/figuras/` (F1, S1, S2, F2 y S3).
+Todos los cálculos aleatorios usan la semilla 42.
 
 ## Convención de commits
 
